@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="css/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- S T A R T   L O A D I N G -->
+    <div id="center" class="center">
+        <div id="ring"></div>
+            <span id="loading">loading...</span>
+        </div>
+    <!-- E N D   L O A D I N G -->
+
+
+    <div class="main" >
+        <!-- <div class="header">
+            <div class="navbar">
+                <div class="sidebar active">
+                    <div class="menu-btn">
+                        <i class="fa-solid fa-caret-left"></i>
+                    </div>
+                    <div class="head">
+                        <div class="user-img">
+                            <img src="data:image/png;base64,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" alt="logo">
+                        </div>
+                        <div class="user-details">
+                            <p class="name">my store</p>
+                        </div>
+                    </div>
+                    <div class="nav">
+                        <div class="menu">
+                            <p class="title">main</p>
+                            <ul>
+                                <li class="list active">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-house"></i>
+                                        <span class="text">Home</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-mobile"></i>
+                                        <span class="text">phones</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-tablet"></i>
+                                        <span class="text">tablets</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-laptop"></i>
+                                        <span class="text">laptops</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-headphones"></i>
+                                        <span class="text">headphones</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-store"></i>
+                                        <span class="text">store</span>
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#">
+                                        <i class="icon fas fa-solid fa-magnifying-glass"></i>
+                                        <span class="text">search</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu">
+                            <div class="end">
+                                <div class="icons">
+                                    <i class="title fa-brands fa-facebook"></i>
+                                    <i class="title fa-brands fa-twitter"></i>
+                                    <i class="title fa-brands fa-youtube"></i>
+                                </div>
+                                <p class="title">Copyright Â© 2023 All RightsReserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home">
+                <div class="container">
+                    <div class="content">
+                        <div class="content-text">
+                            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing.</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem debitis atque exercitationem architecto at officiis.</p>
+                            <button>shop now</button>
+                        </div>
+                        <div class="content-image">
+                            <img src="images/dell-removebg-preview.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="header">
+        <div class="menu active">
+            <div class="menu-btn">
+                <i class="fa-solid fa-caret-left"></i>
+            </div>
+            <ul>
+                <li class="profile">
+                    <div class="img-box">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAxlBMVEUAAADMKin////IAADMKCfLJCPLHh3KEhDLISDMJiXLHRzKGRjJDArKFRP5+/vKGhnx0ND78PCLi4tGRkbS0tLe3t7m5ubquLj56en99/fvyMjBwcHIyMj24eHcf3/z1tZwcHCurq6bm5vNMC9hYWG3t7fgj4/QREOioqJ7e3uDg4Pmp6cRERHw8PAsLCxxcXHPOzrjnJxXV1fSUVDXaWneiIfptbXUWFg5OTkwMDAgICDVYGDYb27lpaXTVlVMTEzaeHcZGRn36h/3AAAMwElEQVR4nO2beXuiSBPAYzWICIgXKt5HjCaGiUc0Zkwm7vf/Um91czWoycSZXX2fp37/7A600NXVdTa5uSEIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiD+Bba3T/e320vP4t9iO61BQG1we+nZ/H2WDkrWqc8Wi1mzw6Ucf5wc+1rZ/vwPp/Z3aAH0uhbTLMO2NMae6y5qsnww7GPY9kJFO4P+fz7Ns3ktQOOFZZVMgJLT2FuRK/KHNOqpJSTrFJv1erNX4v/fer3YnL9FBWDGcpkkOZaZoSKrS3/MsooCufXunDFTQ0xmPm/wfuuyU/89fgKsWeYQ3WJdNEmHe50pQGnzwrSsHt1WchbbNwCWl57/19Tg7piAXIgs2/XQIG9r4O6YpR4MyLIFwP2lBfiKITRPCOhv1l/cIJtaehcHmDuAaw8tAHnl+Ox9VLZrdNnJIcYLwKVF+Jx7mGmfCSj0mJX+pWM8saRFMd9hcGkhPqUNE/1QqIyiqscuZ3Q2X9Sbm7VhRyMZFC4txKcU3CNWqGjm6mXEDo3PmhSDgN+1wmtaEyqXluIzoGceKsqugwh/z8xO3NDuMHo8VLZLjB4voWu1767anT5C80BCPeOCNx60uZCLvHQjt8dL7T7/3S3MjOBqfg2H+d31cExC1gt8x7IGi4QSs7kFxnioDh8c6IbuJ63Dcmt6EVFOcbhL9Tk44U03FSYUm61mIiWNg6hWB6kOGfCbV+V6Dj1N7g0CJQxhYcTCBf9VLTbfr1fRr9CXxgGxzzf2ZHNV27YN81RYUF9g7N/zIBepUM9p0Tg9m48zODaDaFeOAd6ZYXWvSsIyvFtJCTOoFFE1/YBipCl9Apv5QQHCB++jPflPDUoTTeHh43T5fAEAzFRKlu8CDPpbTHfiTZrFa9B7Y0ZS4SL1DqLhBzdO9QpTgCnU05ZocnGgWoZ9lK7l72DsoJG9j5iRE1Iqahbr5EYk4D1gjcLXCu34ytI477A8zJv7RQ+qsI+2pbqC6k2FV/m9xW7EEGPVrUslMOYAO98rW5trqzZe+eKnvI2SY12oSTrMsI5wH2UHZFph67EF7iQInazxrxUb20rlrB5YBQ1I8pRCZewXwIMcLDBKwgMf/Xg/aDu1mlMdD+Py3oGGGuhbscF7KJf7iVe8lluOVygUnFb5n/TrH8u8vVVoRT2h/qDqVAepXPdpHDY7neHBI77kJ/54NmdWXtWRXF5jqybK8yj5UnQqKwijyAE16EW7IPfsT8R7jG4PRYPOLTVcYd+JuX+IBlCn44aV9CDcH+14kDAPaBTrm3qTJ1Wn5vEJZd5E26x3k9FoslvXMWvxlnziGUmz2XkJCkctzEMnGgfO1d0aaUbuZojPLt6tmGDF077YEf1E+RqLOb/TFYnDA4q7ec4ze9+IMqtXHFSa7XgPzNI0Zt9h2vwjPYeveUgYmJ9el5NuVtU2qIFDQ6jhMCng6HnEZuiZOBXU33uO2ao/QrXZcymaOy5sZ8dssYyYOdzzvu2CWZhnKFlWhKEYhD6s8yYuhmbAcB7f36nIbXnQardbg3JkXx7s5NpCMScdCN4bMz3W6FFyvoSok7plicllgzyIz90XEauXbpRFZN9gWIXGyAok0TURVh9r4O5TqYaCUdi5+StgEJ8nHq7yzeQlG4gH6bkYuBLGguv/HNxl3Z0WTrAobqLCJnE+5ecUklM3m7AVXtCMVjm6iU/o/x0Ry+BmkutnG/VUHxindSBgxrrjwWUI7jyIIeYMg5IRilgSed0AOvFPjXeQzVlcuK3wXRtcUyw2Ymq0gNU/k6xy2+8vucVNcY7yRuXT+9WAguQPUYemNMQSLXHbhUdMc9xRsD65HXgehJPFf4ld5oAWiZRdJwXkEuIe34droHDrc38FIuIanS/dQ7sQOpzqkHvCXaqCzKFTkIreAbjNuBVg1jkYbKY8lZiEGwDTgO0g7nxg/sCPPNqQiWXK63wXxztG462UbvhuBX9SaEMpENjsnSvhzzEPTz1+zLZp8lK3PeAbJZnyKAxjXlwg4YiopYE1iM+Q+9h9eBlz1TYuVtQXyK+Fw3JA1poi7DwSERcF3xyt3IbvyyoE50dnS4iewZ2tMPAYhmGZbHSHvhPdfSeT7EhljImsxWGcwGKGPnzdbnm4epB8LOthgl6GdahqfSTsKF1+m78aUctB/QWShWNK5aFjLQCLxD9LgR64a/l8QrfZC8qIKc9byptkJxD3EB1QQlXg1govezAKVY8C1cRCRHkucz1+JlSUDUBh6GzeQ7XjrpQSDkzn+6+4We7s8IHnhAte4JkpZeG+uQOvzM/fkiHBeOaL6iO5xHht+1CPpm8v+KYewHO8BTvAC653Q3okQ+uFdZi/Y+EpdePRs3DvEFZB5lmNkg/+gCPnE/iu6Q8PembSGFk9fMl9bIaKGa1tG1bRZsBN+phsmAg7kkUWD6x94MbkU9BxXeUDFW7ebrMbrj/myGcU2T/RMx82h8XbuM040En2AvRc+JZW7CMxDIRJZ+T2eAudb1L0PPFWFxI6YMSPNO74IAeaBjOZaK1LfU59srOZFp5S5+dnHXjVYH1UwDzGoZbQSTHlFurBayD2F8YidEBLqEd7LKj65fgudik04gtoWVzPOA3oFRv8MwG5Os3oanwGz3aHqeNvcOoYkXc0CiLNlZrA/ryffX3dSrKYRQgyc8lx8tjd52VoU7Irt4AX4h/yHO3Bnwgvtar3GBjUIyaTUQy0wbN6eQDZYw/kXamgWfhD1kFG7D1hc2PZgUTuZwC76Kovdzl0hPy3Fv5WvoAq9JIT8o4cGel5M48eqHDOyXoZZummYjBliEox2Y7EvZIwxALIPccwZW1Jp3Z+iiWf4wn9tyRfZMzSekmuZy5v8/i85u6Wr/j223boxMFLJu4O3/CEQkuoWdgSuuB482F9EBpIO46RuEzc0UjmmrFm8IQBU7LLgzwzcdyQe1svNkWeY3n8BUve0Xj6noSpHRhJuJMKci+tQyHhVDJPO3I0POUMl0zRuTOWzdUXSEpZsFZop2ckS8jEWUmhOhTpBJZdxfdvHq5/yK+XUIzYPJ5kTxFL6IAeKUs6hhrDKspo5nzvtiRzxU3aQpE3kWGgD35ISyg5Wp5I9JdB4wfTj9ILw/Tg8eYbPMltNRltExZifUifh3N/mIh7XOVi9OvA8WJn70sob1Jcm4qciHNflG5LJHYMJm2+v9vyRtUCa37mfk+HD3CXrAIjJWI6UhjcPw0dzE2TixDkL4ncEkfXBkHfL3JdCsOBU2kNja5fJ8QpDkt70puEH8ooqosPnrZ4JNkolpLRFt9suJ2UEKc388uh3iSl5cALJSRUjKYYu8YUrCQnq1grhg0YtE/g0UMqLNAHp80QpyQnrerI/4Cg2GUWrov97W9cTu5SHrqs/WLRjRoIEYHtJJsYipl/ebGYjZsotjveoIB9uIQKClxOFhZBuZgk2f/RTXX3PGGmiNrG6ttp2ylP408pZ9vZw1jiO5obD5LpuqKqCu81tWJXoZj1Tjd8Pt/3XGHyyRaa2WEQH8NCSz44F0yCF+Df/jjiRLT4hLAZNIbuYcXF+4Ut2EQiWtFHRyoKKFKhRC11tGKXmiDJp6Pd9L8rIPr8o1ngJ6C7Fq/5AW42sYEVbdIQId4LjtsS9+ZhP1guLI44mhvuvd1RNpNCNyfJRtjvMjxtiMfJvQgpxE9LmciLZFSN9w1bvuyoRVkLisHr2sAHSvHumKPxnwwvyTXSNbUOxwd/ydG+7mnClidnzI/nNDubzRsmW2HmX+j7N7BubvB+vK4oip4zmLpwo2QLCwsWsT9RDWFw3+TNoCRQ8AkTfLp35ukk2vXR8vAErCmlc/xcp7no7tfvTRcApM9pWvxM5W1imPpk/94D6VBmCG4pwj3lGZcFfPI+J5bB3L13cPXO/wgCYHWw6U8LuAn3qOBxELVY20knV2lL5z21WFM/oSBzOgMb8ie7jY5/Muf8yfdltwCjE5/JptExnqddQ+W+PCz3jx169aetarXamj59K4+MWU6rPJXxnPGffj7HDxl+y9vkjd5R33f9DHlb9Et3o7M3+NNjkYtxD1DPW5/KqJrz4ll9oCthixt+YWqHH+UH6rPFAX/t//pvv/ih+2aV+MOKQLqsFRxjXPPnsr/FFN1zKfjjGMvgWJrJ2KS7EZ+W9i89v7/Bkx/DOsX67H2xWMw2zV7j7C9ZrpXlsF0DmVpreGWfcv0NHivL/tNT/3b5f+1ZCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgiC/5H6ZS+xdynpaWAAAAAElFTkSuQmCC" alt="">
+                    </div>
+                    <h2 class="text">store</h2>
+                </li>
+                <li>
+                    <a href="#" class="active list">
+                        <i class="icon fas fa-solid fa-house"></i>
+                        <p class="text">home</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-mobile"></i>
+                        <p class="text">phones</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-tablet"></i>
+                        <p class="text">tablets</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-laptop"></i>
+                        <p class="text">laptops</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-headphones"></i>
+                        <p class="text">headphones</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-store"></i>
+                        <p class="text">store</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list">
+                        <i class="icon fas fa-solid fa-magnifying-glass"></i>
+                        <p class="text">search</p>
+                    </a>
+                </li>
+                <li class="log-out">
+                    <div class="end ">
+                        <i class="title fa-brands fa-facebook"></i>
+                        <i class="title fa-brands fa-twitter"></i>
+                        <i class="title fa-brands fa-youtube"></i>  
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="title-info">
+                    <div class="container">
+                        <div class="home swiper">
+                            <div class="slide-content">
+                            <div class="home-content swiper-wrapper">
+                        <section class="about swiper-slide">
+                            <div class="about-content">
+                                <h2>Dell Latitude E5470 14 inch HD Intel Core i5 256GB SSD Hard Drive 8GB Memory</h2>
+                                <p>Equipment: display 14 inch LED HD TFT, resolution 1366 x 768 pixels, 16:9, anti-glare (mat). Large fast hard drive 256GB SSD</p>
+                                <a href="#" class="read-more">shopping</a>
+                            </div>
+                            <div class="about-image">
+                                <img src="images/dell-removebg-preview.png" alt="">
+                            </div>
+                        </section>
+                        <section class="about swiper-slide">
+                            <div class="about-content">
+                                <h2>Apple AirPods Pro (2e generatie) </h2>
+                                <p>"Apple H2 headphone chip U1 chip in charging case for precision finding"</p>
+                                <a href="#" class="read-more">shop now</a>
+                            </div>
+                            <div class="about-image">
+                                <img src="images/airpods.png" alt="">
+                            </div>
+                        </section>
+                        <section class="about swiper-slide">
+                            <div class="about-content">
+                                <h2>2023 New I15 Pro Max Smartphone, Fingerprint Unlock, 7.3-Inch Full Screen Face Recognition.</h2>
+                                <p>【108MP HD Rear Camera】 The I15ProMax has a 108 MP camera combination. The main camera has a large f/1.8 aperture and 1.28um pixels.</p>
+                                <a href="#" class="read-more">shop now</a>
+                            </div>
+                            <div class="about-image">
+                                <img src="images/iphone.png" alt="">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-pagination"></div>
+                    </div>
+                    </div>
+            </div>
+            <div class="data-info">
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="js/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
